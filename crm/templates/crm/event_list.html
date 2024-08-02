@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+/* Основные стили для таблицы */
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Стили для ячеек таблицы */
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 12px; /* Увеличены отступы для лучшего восприятия */
+}
+
+/* Стили для заголовков таблицы */
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Стили для строк таблицы */
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Используем светлее цвет для чередования */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Подсветка строки при наведении */
+}
+
+/* Стили для последней строки таблицы */
+tr:last-child {
+  border-bottom: 2px solid #ddd; /* Граница внизу последней строки */
+}
+
+
+
+
+
+</style>
+
+<body>
+
+
+
+
+            <section class="hero-section hero-50 d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+                <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#3D405B" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z" stroke-width="0"></path> <path fill="#3D405B" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z" stroke-width="0"></path> <path fill="#3D405B" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z" stroke-width="0"></path><path fill="#3D405B" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z" stroke-width="0"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+
+
+
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#ffffff" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z" stroke-width="0"></path> <path fill="#ffffff" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z" stroke-width="0"></path><path fill="#ffffff" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z" stroke-width="0"></path></svg>
+            </section>
+
+
+
+
+
+
+
+            <section class="events-section section-bg section-padding" id="section_4">
+                <div class="container mt-4">
+                    <h2 class="table-custom-header">Список:</h2>
+                    <h3>Сумма: {{ total }} сом</h3>
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>Пользователь</th>
+                                <th>Билет</th>
+                                <th>Кол-во билетов</th>
+                                <th>Стоимость</th>
+                                <th>Дата создания</th>
+                                <th>Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for event in events %}
+                            <tr>
+                                <td>{{ event.user }}</td>
+                                <td>{{ event.ticket }}</td>
+                                <td>{{ event.quantity }}</td>
+                                <td>{{ event.total_price }}</td>
+                                <td>{{ event.create_date }}</td>
+                                <td>{{ event.get_status_display }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+
+
+    </body>
+
+{% endblock %}
+
